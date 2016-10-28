@@ -1,0 +1,12 @@
+FROM phusion/baseimage:latest
+MAINTAINER Soloman Weng <soloman1124@gmail.com>
+
+CMD ["/sbin/my_init"]
+
+ADD ./install /install
+WORKDIR /install
+RUN ./install.sh
+RUN rm -rf /install
+
+RUN mkdir -p /usr/src/app && chown app:app /usr/src/app
+WORKDIR /usr/src/app

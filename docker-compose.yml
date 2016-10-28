@@ -1,0 +1,5 @@
+version: "2"
+services:
+  console:
+    build: .
+    command: [/sbin/my_init, --, bash, -l]
