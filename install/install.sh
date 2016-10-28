@@ -5,7 +5,7 @@ source ./buildconfig.sh
 
 run ./prepare.sh
 
-minimal_apt_get_install xz-utils siege wget groff
+minimal_apt_get_install xz-utils siege wget groff git
 run ./nodejs.sh
 run ./python.sh
 

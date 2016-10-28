@@ -10,8 +10,7 @@ if [ ! -e /usr/local/bin/pip3 ]; then
 	rm /tmp/get-pip.py
 fi
 
-cd /usr/bin \
-	&& ln -s pydoc3 /usr/local/bin/pydoc \
-	&& ln -s python3 /usr/local/bin/python
+ln -s /usr/bin/pydoc3 /usr/local/bin/pydoc
+ln -s /usr/bin/python3 /usr/local/bin/python
 
 pip install awscli
