@@ -4,7 +4,8 @@ source ./buildconfig.sh
 
 echo /root > /etc/container_environment/HOME
 
-apt-key adv --fetch-keys http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc \
+echo "deb http://packages.erlang-solutions.com/ubuntu trusty contrib" >> /etc/apt/sources.list \
+  && apt-key adv --fetch-keys http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc \
   && apt-get update \
   && apt-get install -y esl-erlang
 
