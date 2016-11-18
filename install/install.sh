@@ -9,6 +9,7 @@ minimal_apt_get_install xz-utils siege wget groff git
 run ./nodejs.sh
 run ./python.sh
 run ./go.sh
+run ./erlang.sh
 
 header "Finalizing..."
 run apt-get remove -y autoconf automake
