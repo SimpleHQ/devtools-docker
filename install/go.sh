@@ -15,7 +15,6 @@ export GOPATH=/go
 echo $GOPATH > /etc/container_environment/GOPATH
 
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
-echo $PATH > /etc/container_environment/PATH
 
 header "install glide"
 export GLIDE_VERSION=0.12.3

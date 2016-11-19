@@ -5,7 +5,7 @@ source ./buildconfig.sh
 export HOME=/root
 echo $HOME > /etc/container_environment/HOME
 
-echo "deb http://packages.erlang-solutions.com/ubuntu trusty contrib" >> /etc/apt/sources.list \
+echo "deb http://packages.erlang-solutions.com/ubuntu xenial contrib" >> /etc/apt/sources.list \
   && apt-key adv --fetch-keys http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc \
   && apt-get update \
   && apt-get install -y esl-erlang
