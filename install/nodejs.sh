@@ -26,4 +26,4 @@ tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components
 rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-npm install -g --allow-root jspm jspm-server yo generator-generator
+npm install -g --allow-root jspm jspm-server yo generator-generator yarn
