@@ -2,9 +2,9 @@
 set -e
 source ./buildconfig.sh
 
-export GOLANG_VERSION=1.7.3
+export GOLANG_VERSION=1.10
 export GOLANG_DOWNLOAD_URL=https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
-export GOLANG_DOWNLOAD_SHA256=508028aac0654e993564b6e2014bf2d4a9751e3b286661b0b0040046cf18028e
+export GOLANG_DOWNLOAD_SHA256=b5a64335f1490277b585832d1f6c7f8c6c11206cba5cd3f771dcb87b98ad1a33
 
 curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 	&& echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
@@ -16,14 +16,14 @@ echo $GOPATH > /etc/container_environment/GOPATH
 
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
-header "install glide"
-export GLIDE_VERSION=0.12.3
-curl -Ls https://github.com/Masterminds/glide/releases/download/${GLIDE_VERSION}/glide-${GLIDE_VERSION}-linux-amd64.tar.gz | tar -xz --strip-components=1 -C /tmp \
-  && mv /tmp/glide /usr/local/bin/ \
-  && rm -rf /tmp/*
+header "install dep"
+export DEP_VERSION=0.3.2
+curl -fsSL -o /usr/local/bin/dep https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-linux-amd64 \
+	&& chmod +x /usr/local/bin/dep
 
-header "install gore"
+header "install other tools"
 go get github.com/motemen/gore \
   && go get github.com/nsf/gocode \
   && go get github.com/k0kubun/pp \
-  && go get golang.org/x/tools/cmd/godoc
+  && go get golang.org/x/tools/cmd/godoc \
+	&& go get honnef.co/go/tools/cmd/gosimple
